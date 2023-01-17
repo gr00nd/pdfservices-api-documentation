@@ -127,9 +127,9 @@ export default ({ children, pageContext, location }) => {
     const IMS_CONFIG = process.env.GATSBY_IMS_CONFIG;
 
     if (IMS_SRC && IMS_CONFIG) {
-      (async () => {
+      (() => {
         try {
-          await addScript(`${IMS_SRC}`);
+          addScript(`${IMS_SRC}`);
           let IMS_CONFIG_JSON = JSON.parse(IMS_CONFIG);
           IMS_CONFIG_JSON.onReady = () => {
             setIms(window.adobeIMS);
